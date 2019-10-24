@@ -23,4 +23,17 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
         });
+<<<<<<< HEAD
+    };
+
+    $.ajax({
+        url: "https://api.openbrewerydb.org/breweries?by_city=minneapolis",
+        method: "GET"
+    }).then(function(response){
+        var theResult = response;
+        console.log(theResult);
     });
+});
+=======
+    });
+>>>>>>> 74d260de243df62b4782d8def65bacd15c0275a7
