@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    // $(".submit").on("click", function (event) {
-        event.preventDefault()
-
         $.ajax({
             url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=burgers",
             dataType: 'json',
@@ -14,3 +11,22 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
         });
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
