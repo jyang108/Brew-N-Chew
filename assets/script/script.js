@@ -23,7 +23,6 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
         });
-<<<<<<< HEAD
     };
 
     $.ajax({
@@ -34,6 +33,4 @@ $(document).ready(function () {
         console.log(theResult);
     });
 });
-=======
     });
->>>>>>> 74d260de243df62b4782d8def65bacd15c0275a7
