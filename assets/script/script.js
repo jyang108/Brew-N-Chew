@@ -3,6 +3,15 @@ $(document).ready(function () {
     // $(".submit").on("click", function (event) {
         event.preventDefault()
 
+        var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
+        var city = "minneapolis";
+        var state = "Minnesota";
+
+        var cityBreweryURL = initialBreweryURL.replace("{cityname}", city)
+        var stateBreweryURL = cityBreweryURL.replace("{state}",state)
+
+        console.log(stateBreweryURL);
+
         $.ajax({
             url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=burgers",
             dataType: 'json',
@@ -14,6 +23,7 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
         });
+<<<<<<< HEAD
     };
 
     $.ajax({
@@ -24,3 +34,6 @@ $(document).ready(function () {
         console.log(theResult);
     });
 });
+=======
+    });
+>>>>>>> 74d260de243df62b4782d8def65bacd15c0275a7
