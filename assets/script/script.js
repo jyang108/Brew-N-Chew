@@ -15,3 +15,12 @@ $(document).ready(function () {
             console.log(response);
         });
     };
+
+    $.ajax({
+        url: "https://api.openbrewerydb.org/breweries?by_city=minneapolis",
+        method: "GET"
+    }).then(function(response){
+        var theResult = response;
+        console.log(theResult);
+    });
+});
