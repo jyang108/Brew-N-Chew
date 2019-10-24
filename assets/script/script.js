@@ -26,6 +26,8 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
         });
+    };
+
         
 // ajax for brewery
     $.ajax({
@@ -36,3 +38,4 @@ $(document).ready(function () {
         // console.log(theResult);
     });
 });
+    });
