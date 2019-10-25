@@ -25,19 +25,50 @@
 </head>
 
 <body>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/script/script.js"></script>
 
-<footer>
+<header>
     <div class id="buttons">
-        <button value="text">I'm Hungry!</button>
-        <button value="text">Im Thirsty!</button>
-        <button value="text">I'm Hungry And Thirsty!</button>
+        <button id="food" value="text">I'm Hungry!</button>
+        <button id="drinks" value="text">Im Thirsty!</button>
+        <button id="both" value="text">I'm Hungry And Thirsty!</button>
     </div>
-</footer>
+  </header>
 
+<main class="container">
+  <div class="row">
+    <div id="foodDiv" class="col-md-12">
+    <section class="card">
+        <div class="card-body">
+          <h5 class="card-title">Restaurants</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Search</a>
+        </div>
+    </section>
+    </div>
+    <div id="drinkDiv" class="col-md-12">
+    <section class="card">
+        <div class="card-body">
+          <h5 class="card-title">Breweries</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+          <a href="#" class="btn btn-primary">Search</a>
+        </div>
+    </section>
+    </div>
+    <div id="bothDiv" class="col-md-12">
+    <section class="card-group"></section>
+    </div>    
+
+  </div>
+  <div class="row">
+
+  </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/script/script.js"></script>
    
 </body>
 
