@@ -4,29 +4,28 @@ $(document).ready(function () {
     // event.preventDefault()
 
     var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
-    var city = "Des Moines";
-    var state = "Iowa";
+    var city = "West Des Moines";
+    var state = "iowa";
 
-    for(i=0; i < city.length; i++){
-        if (city.charAt[i] === "d") {
-            city.replace( "d", "%20");
-        }
-    }
-    console.log(city)
+    // replaces spaces with %20
+    for(var i=0; i <city.length; i++){
+        if (city.charAt(i) === " ") {
+       var city = city.replace( " ", "%20");
+        };
+    };
 
-    for(i=0; i < state.length; i++){
-        if (state.charAt[i] === " ") {
-            state.replace(" ", "%20");
-        }
-    }
-    console.log(state)
+    for(var i=0; i < state.length; i++){
+        if (state.charAt(i) === " ") {
+        var state = state.replace( " ", "%20");
+        };
+    };
 
     var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
     var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
     var breweryURL = stateBreweryURL;
 
-    // console.log(breweryURL);
+    console.log(breweryURL);
 
     // ajax for zomato
     $.ajax({
@@ -38,7 +37,7 @@ $(document).ready(function () {
                 'd88928eafacfec3391be0d039bd9daa4');
         },
     }).then(function (response) {
-        // console.log(response);
+        console.log(response);
     });
 
     // ajax for brewery
@@ -46,9 +45,10 @@ $(document).ready(function () {
         url: breweryURL,
         method: "GET"
     }).then(function (response) {
-        // var theResult = response;
-        // console.log(theResult);
+        var theResult = response;
+        console.log(theResult);
     });
+<<<<<<< HEAD
 
     
 
@@ -68,3 +68,6 @@ $(document).ready(function () {
     });
 
 });
+=======
+});
+>>>>>>> c866dba98faa17fe9df60893eff3374dcf70b1c8

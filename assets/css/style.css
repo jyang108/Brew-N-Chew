@@ -1,3 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url("https://wallpaperplay.com/walls/full/5/b/b/67568.jpg");
+}
+
+h1{
+    font-size: 100px;
+    font-family: "Timmana" , sans-serif;
+    color: orange;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%)
+   
+}
+
+
 #buttons{
-    text-align: right;
+    
+    float: right;
+    position: fixed;
+    bottom: 0;
+    font-size:20px;
+    font-family: "Timmana" , sans-serif;
 }
