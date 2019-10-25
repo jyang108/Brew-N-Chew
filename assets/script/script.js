@@ -48,9 +48,6 @@ $(document).ready(function () {
         var theResult = response;
         console.log(theResult);
     });
-<<<<<<< HEAD
-
-    
 
     $("button").on("click", function(){
         // var searchFields = $("main");
@@ -68,6 +65,3 @@ $(document).ready(function () {
     });
 
 });
-=======
-});
->>>>>>> c866dba98faa17fe9df60893eff3374dcf70b1c8
