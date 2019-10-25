@@ -8,17 +8,17 @@ $(document).ready(function () {
     var state = "iowa";
 
     // replaces spaces with %20
-    for(var i=0; i <city.length; i++){
-        if (city.charAt(i) === " ") {
+    // for(var i=0; i <city.length; i++){
+    //     if (city.charAt(i) === " ") {
        var city = city.replace( " ", "%20");
-        };
-    };
+    //     };
+    // };
 
-    for(var i=0; i < state.length; i++){
-        if (state.charAt(i) === " ") {
+    // for(var i=0; i < state.length; i++){
+        // if (state.charAt(i) === " ") {
         var state = state.replace( " ", "%20");
-        };
-    };
+    //     };
+    // };
 
     var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
     var stateBreweryURL = cityBreweryURL.replace("{state}", state);
@@ -48,6 +48,8 @@ $(document).ready(function () {
         var theResult = response;
         console.log(theResult);
     });
+
+    
 
     $("button").on("click", function(){
         // var searchFields = $("main");
