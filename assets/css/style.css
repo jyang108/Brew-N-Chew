@@ -1,4 +1,5 @@
 *{
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
 }
@@ -120,3 +121,51 @@ h1{
     
     
     
+=======
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-image: url("../images/zwartevilt/zwartevilt.png");
+}
+
+#mainHead{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#headTitle{
+    font-size: 9vw;
+    font-family: "Timmana" , sans-serif;
+    color: orange;
+
+}
+
+.button{
+    bottom: 0;
+    font-size: 2vw;
+    font-family: "Timmana" , sans-serif;
+}
+
+a.button {
+    color: #ffa500;
+}
+
+a.button:hover {
+    color: #ffd207f5;
+}
+
+#foodDiv {
+    visibility: hidden;
+}
+
+#drinkDiv {
+    visibility: hidden;
+}
+#spaceArea{
+    visibility: hidden;
+}
+>>>>>>> df44022b67c6fe2c78f70ab24cf84bfa7ee53e0b
