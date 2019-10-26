@@ -3,6 +3,7 @@ $(document).ready(function () {
         $("header").css("visibility", "hidden");
     });
 
+    // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
         var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
         var city = $("#drinkCity").val();
@@ -25,7 +26,7 @@ $(document).ready(function () {
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
         var breweryURL = stateBreweryURL;
-console.log(breweryURL);
+
         $.ajax({
             url: breweryURL,
             method: "GET"
@@ -35,10 +36,12 @@ console.log(breweryURL);
         });
     });
 
+    // starts function for restaurant search
 $("#foodSearch").on("click", function(){
     var theCity = $("#foodCity").val().trim();
     var keyWord = $("#foodType").val().trim();
     var theZomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + theCity + "&entity_type=city&q=" + keyWord;
+    console.log()
     // ajax for zomato
     $.ajax({
         url: theZomatoUrl,
