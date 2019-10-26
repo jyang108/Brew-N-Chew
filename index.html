@@ -59,7 +59,7 @@
               <form>
                   <div class="form-group">
                       <label for="exampleFormControlTextarea1">State</label>
-                      <textarea class="form-control" id="state" rows="1"></textarea>
+                      <textarea class="form-control" id="foodState" rows="1"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleFormControlTextarea1">City</label>
@@ -73,23 +73,30 @@
               <a href="#" class="btn btn-outline-dark">Search</a>
              </div>
         </div>
-        <div class="col-md-2" id="spaceArea"></div>
+        <div class="col-md-2"></div>
         <div id="drinkDiv" class="card col-md-5">
             <h5 class="card-header">Breweries</h5>
             <div class="card-body">
               <p class="card-text">Search for some brew</p>
               <form>
                   <div class="form-group">
-                      <label for="exampleFormControlTextarea1">State</label>
+                      <label>State</label>
                       <textarea class="form-control" id="state" rows="1"></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="exampleFormControlTextarea1">City</label>
+                    <label>City</label>
                     <textarea class="form-control" id="city" rows="1"></textarea>
                   </div>
                   <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Type of brewery</label>
-                      <textarea class="form-control" id="micro, regional, brewpub, large, planning, bar, contract, proprietor" rows="1"></textarea>
+                      <label for="exampleFormControlSelect1">Type of brewery</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option></option>
+                        <option>micro</option>
+                        <option>regional</option>
+                        <option>brewpub</option>
+                        <option>bar</option>
+                        <option>large</option>
+                      </select>
                     </div>
                 </form>
               <a href="#" class="btn btn-outline-dark">Search</a>
