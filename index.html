@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -17,21 +18,20 @@
 
 
 <body>
-  <nav class="navbar navbar-inverse navbar-expand-md navbar-dark bg-transparent">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul id="navbar" class="navbar-nav">
-          <li class="nav-item">
-            <a id="home" class="nav-link" href="#">Home</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a id="home" class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">About</a>
+            <a class="nav-item nav-link" href="#">Contact</a>
+          </div>
+        </div>
+      </nav>
+
   <header class="container">
     <div class="row justify-content-center" id="mainHead">
       <h1 id="headTitle" class="">Brew N' Chew</h1>
@@ -50,6 +50,7 @@
   </header>
 
   <main class="container">
+    <br><br>
     <section>
       <div class="row">
         <div id="foodDiv" class="card col-md-5">
@@ -58,16 +59,25 @@
               <p class="card-text">Search for some food</p>
               <form>
                   <div class="form-group">
-                      <label for="exampleFormControlTextarea1">State</label>
-                      <input type="text" class="form-control" id="foodState" rows="1">
+                      <label>State</label>
+                      <input class="form-control" id="foodState" rows="1">
                   </div>
                   <div class="form-group">
+<<<<<<< HEAD
                     <label for="exampleFormControlTextarea1">City</label>
                     <input type="text" class="form-control" id="foodCity" rows="1">
                   </div>
                   <div class="form-group">
                       <label for="exampleFormControlTextarea1">Type of food</label>
                       <input type="text" class="form-control" id="foodType" placeholder="American, Thai, Indian ..." rows="1">
+=======
+                    <label>City</label>
+                    <input class="form-control" id="foodCity" rows="1">
+                  </div>
+                  <div class="form-group">
+                      <label>Type of food</label>
+                      <input class="form-control" id="foodType" rows="1" placeholder="American, Chinese, Ethiopian, Mexican..."></input>
+>>>>>>> 6d2282c7eecdc94df3b1cf50a6aafa6cf1c193a9
                     </div>
                 </form>
               <a href="#" class="btn btn-outline-dark" id="foodSearch">Search</a>
@@ -88,8 +98,13 @@
                     <input type=text class="form-control" id="city" rows="1">
                   </div>
                   <div class="form-group">
+<<<<<<< HEAD
                       <label for="exampleFormControlSelect1">Type of brewery</label>
                       <select class="form-control" id="drinkType">
+=======
+                      <label>Type of brewery</label>
+                      <select class="form-control" id="exampleFormControlSelect1">
+>>>>>>> 6d2282c7eecdc94df3b1cf50a6aafa6cf1c193a9
                         <option></option>
                         <option>micro</option>
                         <option>regional</option>
@@ -108,7 +123,8 @@
   </main>
 
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
