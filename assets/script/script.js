@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     // ajax for zomato
     $.ajax({
-        url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=burgers",
+        url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=chinese",
         dataType: 'json',
         async: true,
         beforeSend: function (xhr) {
