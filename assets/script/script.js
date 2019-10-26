@@ -48,22 +48,38 @@ $(document).ready(function () {
         var theResult = response;
         console.log(theResult);
     });
+ 
 
-    
+    $(".button").on("click", function(){
+        var foodDiv = $("#foodDiv")
+        var drinkDiv = $("#drinkDiv")
+        var dataID = $(this).attr("data-id");
+        console.log(dataID);
 
-    $("button").on("click", function(){
-        // var searchFields = $("main");
-        // var searchRow = $("<div id='searchRow' class='row'>")
-        // var foodDiv = $("<div id=''>")
-
-
-
-
-
-
-
+        if (dataID === "foodDiv") {
+            foodDiv.css("visibility", "visible");
+        } else if (dataID === "drinkDiv") {
+            drinkDiv.css("visibility", "visible");
+        } else if (dataID === "both") {
+            foodDiv.css("visibility", "visible");
+            drinkDiv.css("visibility", "visible");
+        }
 
 
     });
+
+
+
+    $("#home").on("click", function(){
+        var foodDiv = $("#foodDiv")
+        var drinkDiv = $("#drinkDiv")
+        
+        foodDiv.css("visibility", "hidden");
+        drinkDiv.css("visibility", "hidden");
+    
+    });
+
+
+
 
 });
