@@ -7,41 +7,54 @@ body{
     background-image: url("../images/zwartevilt/zwartevilt.png");
 }
 
-#mainHead{
-    position: absolute;
-    left:50%;
-    top:50%;
-    transform: translateX(-50%) translateY(-50%);
+#headContainer {
+    width: 100%;
+    margin-left: auto;
+    margin-top: 7%;
 }
-
 #headTitle{
-    font-size: 9vw;
+    font-size: 16vw;
     font-family: "Timmana" , sans-serif;
-    color: orange;
+    color: #ff711e;
+    width: 100%;
+    text-align: center;
 
+}
+#searchNav {
+    margin-left: 20%;
+}
+header {
+    display: block;
 }
 
 .button{
     bottom: 0;
-    font-size: 2vw;
-    font-family: "Timmana" , sans-serif;
+    font-size: 3vw;
+    font-family: 'Raleway', sans-serif;
+    padding: 0%;
+    margin: .5vw;
 }
 
 a.button {
-    color: #ffa500;
+    color: #ff5e00;
 }
 
 a.button:hover {
-    color: #ffd207f5;
+    color: #ffaa3c;
 }
 
 #foodDiv {
-    visibility: hidden;
+    display: none;
 }
 
 #drinkDiv {
-    visibility: hidden;
+    display: none;
 }
 #spaceArea{
-    visibility: hidden;
+    display: none;
 }
+
+#searchFields {
+    display: none;
+}
+

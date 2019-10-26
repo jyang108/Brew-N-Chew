@@ -59,24 +59,30 @@ $(document).ready(function () {
         var dataID = $(this).attr("data-id");
         console.log(dataID);
 
+        $("#searchFields").css("display", "block")
+        $("header").css("display", "none");
+
         if (dataID === "foodDiv") {
-            foodDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
         } else if (dataID === "drinkDiv") {
-            drinkDiv.css("visibility", "visible");
+            drinkDiv.css("display", "block");
         } else if (dataID === "both") {
-            foodDiv.css("visibility", "visible");
-            drinkDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
+            $("#spaceArea").css("display", "block")
+            drinkDiv.css("display", "block");
+            
         }
     });
-
-
 
     $("#home").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
-        $("header").css("visibility","visible");
-        foodDiv.css("visibility", "hidden");
-        drinkDiv.css("visibility", "hidden");
+        $("header").css("display", "block");
+        $("header").css("visibility", "visible");
+        foodDiv.css("display", "none");
+        drinkDiv.css("display", "none");
+        $("#searchFields").css("display", "none")
+        $("#spaceArea").css("display", "none")
     
     });
 
