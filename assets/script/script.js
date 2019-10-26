@@ -10,23 +10,21 @@ $(document).ready(function () {
         var state = $("#drinkState").val();
 
         // replaces spaces with %20
-        for (var i = 0; i < city.length; i++) {
-            if (city.charAt(i) === " ") {
-                var city = city.replace(" ", "%20");
-            };
-        };
+        var city = changeTheSpaces(city);
+        var state = changeTheSpaces(state);
 
-        for (var i = 0; i < state.length; i++) {
-            if (state.charAt(i) === " ") {
-                var state = state.replace(" ", "%20");
-            };
-        };
+
+        // for (var i = 0; i < state.length; i++) {
+        //     if (state.charAt(i) === " ") {
+        //         var state = state.replace(" ", "%20");
+        //     };
+        // };
 
         var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
         var breweryURL = stateBreweryURL;
-
+        console.log(breweryURL);
         $.ajax({
             url: breweryURL,
             method: "GET"
@@ -34,17 +32,22 @@ $(document).ready(function () {
             var theResult = response;
             console.log(theResult);
         });
+
     });
 
     // starts function for restaurant search
 $("#foodSearch").on("click", function(){
-    var theCity = $("#foodCity").val().trim();
+    var city = $("#foodCity").val().trim();
     var keyWord = $("#foodType").val().trim();
-    var theZomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + theCity + "&entity_type=city&q=" + keyWord;
-    console.log()
+
+    var city = changeTheSpaces(city);
+    var keyWord = changeTheSpaces(keyWord);
+
+    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
+
     // ajax for zomato
     $.ajax({
-        url: theZomatoUrl,
+        url: zomatoUrl,
         dataType: 'json',
         async: true,
         beforeSend: function (xhr) {
@@ -54,6 +57,7 @@ $("#foodSearch").on("click", function(){
     }).then(function (response) {
         console.log(response);
     });
+    console.log(zomatoUrl)
 })
 
 
