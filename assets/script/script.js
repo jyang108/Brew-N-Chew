@@ -38,7 +38,6 @@ $(document).ready(function () {
         beforeSend: function (xhr) {
             xhr.setRequestHeader('user-key',
                 'd88928eafacfec3391be0d039bd9daa4');
-                console.log(url);
         },
     }).then(function (response) {
         console.log(response);
