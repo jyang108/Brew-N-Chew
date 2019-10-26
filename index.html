@@ -46,7 +46,39 @@
     </div>
   </header>
 
+  <div>
+    <h1>Restaurants</h1>
+  
+    <form id="restaurants" name="restaurants">
+        <p>What State are you in?</p>
+        <input id="textbox" type="text" name="question1"><br>
+        <br><p>What kind of food do you want?</p>
+        <input type="radio" id="mc" name="question1" value="Hispanic Cuisine">Hispanic Cuisine<br>
+        <input type="radio" id="mc" name="question1" value="Asian Cuisine">Asian Cuisine<br>
+        <input type="radio" id="mc" name="question1" value="American Cuisine">American Cuisine<br>
+        <input type="radio" id="mc" name="question1" value="Italian Cuisine">Italian Cuisine<br>
+        <input type="radio" id="mc" name="question1" value="Vegetarian">Vegetarian<br>
 
+        <br><input id = "button" type = "button" value = "Submit" onclick = "check();">
+    </form>
+  </div>
+  
+  <div>
+    
+    <form id="breweries" name="breweries">
+        <p>What State are you in?</p>
+        <input id="textbox" type="text" name="question2"><br>
+        <br><p>What City are you in?</p>
+        <input id="textbox" type="text" name="question2"><br>
+        <br><p>What type of Bar?</p>
+        <input type="radio" id="mc" name="type" value="Regional">Regional<br>
+        <input type="radio" id="mc" name="type" value="Large">Large<br>
+        <input type="radio" id="mc" name="type" value="Brewpub">Brewpub<br>
+        <input type="radio" id="mc" name="type" value="Bar">Bar<br>
+
+        <br><input id = "button" type = "button" value = "Submit" onclick = "check();">
+    </form>
+  </div>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

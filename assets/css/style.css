@@ -3,6 +3,16 @@
     padding:0;
 }
 
+h1{
+    color: orange;
+    font-family: "Timmana" , sans-serif;
+}
+
+h2{
+    float: right;
+    
+}
+
 body{
     background-image: url("https://wallpaperplay.com/walls/full/5/b/b/67568.jpg");
 }
@@ -35,3 +45,20 @@ a.button:hover {
     color: #ffd207f5;
 }
 
+#restaurants{
+    margin-left: 10px;
+    background: wheat;
+    padding: 20px 30px 20px 30px;
+    width: 400px;
+    border-radius: 20px;
+    float: left;
+}
+
+#breweries{
+    margin-left: 10px;
+    background: whitesmoke;
+    padding: 20px 30px 20px 30px;
+    width: 400px;
+    border-radius: 20px;
+    float: right;
+}
