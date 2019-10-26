@@ -8,6 +8,7 @@ $(document).ready(function () {
         var city = $("drinkCity").val().trim();
         var state = "iowa";
 
+        console.log(city);
         // replaces spaces with %20
         for (var i = 0; i < city.length; i++) {
             if (city.charAt(i) === " ") {
