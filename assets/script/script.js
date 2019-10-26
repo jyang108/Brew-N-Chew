@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     $("#drinkSearch").on("click", function () {
         var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
-        var city = $("drinkCity").val().trim();
-        var state = "iowa";
+        var city = $("#drinkCity").val();
+        var state = $("#drinkState").val();
 
         // replaces spaces with %20
         for (var i = 0; i < city.length; i++) {
@@ -25,7 +25,7 @@ $(document).ready(function () {
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
         var breweryURL = stateBreweryURL;
-
+console.log(breweryURL);
         $.ajax({
             url: breweryURL,
             method: "GET"
