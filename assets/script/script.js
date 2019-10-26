@@ -35,10 +35,13 @@ $(document).ready(function () {
         });
     });
 
-
+$("#foodSearch").on("click", function(){
+    var theCity = $("#foodCity").val().trim();
+    var keyWord = $("#foodType").val().trim();
+    var theZomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + theCity + "&entity_type=city&q=" + keyWord;
     // ajax for zomato
     $.ajax({
-        url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=chinese",
+        url: theZomatoUrl,
         dataType: 'json',
         async: true,
         beforeSend: function (xhr) {
@@ -48,16 +51,13 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log(response);
     });
-
-    // ajax for brewery
+})
 
 
     $(".button").on("click", function () {
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
         var dataID = $(this).attr("data-id");
-        console.log(dataID);
-
         if (dataID === "foodDiv") {
             foodDiv.css("visibility", "visible");
         } else if (dataID === "drinkDiv") {
