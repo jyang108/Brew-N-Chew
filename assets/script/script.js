@@ -79,5 +79,15 @@ $("#foodSearch").on("click", function(){
 
     });
 
+    function changeTheSpaces(name){
+        var theName = name;
+        for (var i = 0; i < theName.length; i++) {
+            if (theName.charAt(i) === " ") {
+                var theName = theName.replace(" ", "%20");
+            };
+        };
+        return theName;
+    }
+
 });
 
