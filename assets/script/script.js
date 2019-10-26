@@ -1,34 +1,40 @@
 $(document).ready(function () {
-    $("a").on("click", function(){
-        $("header").css("visibility","hidden");
+    $("a").on("click", function () {
+        $("header").css("visibility", "hidden");
     });
 
-    // $(".submit").on("click", function (event) {
-    // event.preventDefault()
+    $("#drinkSearch").on("click", function () {
+        var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
+        var city = $("drinkCity").val().trim();
+        var state = "iowa";
 
-    var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
-    var city = "West Des Moines";
-    var state = "iowa";
-
-    // replaces spaces with %20
-    for(var i=0; i <city.length; i++){
-        if (city.charAt(i) === " ") {
-    var city = city.replace(" ", "%20");
+        // replaces spaces with %20
+        for (var i = 0; i < city.length; i++) {
+            if (city.charAt(i) === " ") {
+                var city = city.replace(" ", "%20");
+            };
         };
-    };
 
-    for(var i=0; i < state.length; i++){
-    if (state.charAt(i) === " ") {
-    var state = state.replace(" ", "%20");
+        for (var i = 0; i < state.length; i++) {
+            if (state.charAt(i) === " ") {
+                var state = state.replace(" ", "%20");
+            };
         };
-    };
 
-    var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
-    var stateBreweryURL = cityBreweryURL.replace("{state}", state);
+        var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
+        var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
-    var breweryURL = stateBreweryURL;
+        var breweryURL = stateBreweryURL;
 
-    console.log(breweryURL);
+        $.ajax({
+            url: breweryURL,
+            method: "GET"
+        }).then(function (response) {
+            var theResult = response;
+            console.log(theResult);
+        });
+    });
+
 
     // ajax for zomato
     $.ajax({
@@ -44,16 +50,9 @@ $(document).ready(function () {
     });
 
     // ajax for brewery
-    $.ajax({
-        url: breweryURL,
-        method: "GET"
-    }).then(function (response) {
-        var theResult = response;
-        console.log(theResult);
-    });
- 
 
-    $(".button").on("click", function(){
+
+    $(".button").on("click", function () {
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
         var dataID = $(this).attr("data-id");
@@ -71,13 +70,14 @@ $(document).ready(function () {
 
 
 
-    $("#home").on("click", function(){
+    $("#home").on("click", function () {
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
-        $("header").css("visibility","visible");
+        $("header").css("visibility", "visible");
         foodDiv.css("visibility", "hidden");
         drinkDiv.css("visibility", "hidden");
-    
+
     });
 
 });
+
