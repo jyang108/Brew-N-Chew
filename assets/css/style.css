@@ -45,29 +45,10 @@ a.button:hover {
     color: #ffd207f5;
 }
 
-<<<<<<< HEAD
-#restaurants{
-    margin-left: 10px;
-    background: wheat;
-    padding: 20px 30px 20px 30px;
-    width: 400px;
-    border-radius: 20px;
-    float: left;
-}
-
-#breweries{
-    margin-left: 10px;
-    background: whitesmoke;
-    padding: 20px 30px 20px 30px;
-    width: 400px;
-    border-radius: 20px;
-    float: right;
-=======
 #foodDiv {
     visibility: hidden;
 }
 
 #drinkDiv {
     visibility: hidden;
->>>>>>> dc7a6a3f7ff5970c3b78f90a2490790df01e75b3
 }
