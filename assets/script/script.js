@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $("a").on("click", function(){
+        $("header").css("visibility","hidden");
+    });
 
     // $(".submit").on("click", function (event) {
     // event.preventDefault()
@@ -8,17 +11,17 @@ $(document).ready(function () {
     var state = "iowa";
 
     // replaces spaces with %20
-    // for(var i=0; i <city.length; i++){
-    //     if (city.charAt(i) === " ") {
-       var city = city.replace( " ", "%20");
-    //     };
-    // };
+    for(var i=0; i <city.length; i++){
+        if (city.charAt(i) === " ") {
+    var city = city.replace(" ", "%20");
+        };
+    };
 
-    // for(var i=0; i < state.length; i++){
-        // if (state.charAt(i) === " ") {
-        var state = state.replace( " ", "%20");
-    //     };
-    // };
+    for(var i=0; i < state.length; i++){
+    if (state.charAt(i) === " ") {
+    var state = state.replace(" ", "%20");
+        };
+    };
 
     var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
     var stateBreweryURL = cityBreweryURL.replace("{state}", state);
@@ -73,7 +76,7 @@ $(document).ready(function () {
     $("#home").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
-        
+
         foodDiv.css("visibility", "hidden");
         drinkDiv.css("visibility", "hidden");
     
