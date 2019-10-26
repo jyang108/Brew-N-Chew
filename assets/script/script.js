@@ -67,8 +67,6 @@ $(document).ready(function () {
             foodDiv.css("visibility", "visible");
             drinkDiv.css("visibility", "visible");
         }
-
-
     });
 
 
@@ -76,7 +74,7 @@ $(document).ready(function () {
     $("#home").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
-
+        $("header").css("visibility","visible");
         foodDiv.css("visibility", "hidden");
         drinkDiv.css("visibility", "hidden");
     
