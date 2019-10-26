@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    
+    $("a").on("click", function(){
+        $("header").css("visibility","hidden");
+    });
+
     // $(".submit").on("click", function (event) {
     // event.preventDefault()
 
