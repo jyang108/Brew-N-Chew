@@ -14,7 +14,7 @@ h2{
 }
 
 body{
-    background-image: url("https://wallpaperplay.com/walls/full/5/b/b/67568.jpg");
+    background-image: url("../images/zwartevilt/zwartevilt.png");
 }
 
 #mainHead{
@@ -45,6 +45,7 @@ a.button:hover {
     color: #ffd207f5;
 }
 
+<<<<<<< HEAD
 #restaurants{
     margin-left: 10px;
     background: wheat;
@@ -61,4 +62,12 @@ a.button:hover {
     width: 400px;
     border-radius: 20px;
     float: right;
+=======
+#foodDiv {
+    visibility: hidden;
+}
+
+#drinkDiv {
+    visibility: hidden;
+>>>>>>> dc7a6a3f7ff5970c3b78f90a2490790df01e75b3
 }
