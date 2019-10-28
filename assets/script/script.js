@@ -13,13 +13,6 @@ $(document).ready(function () {
         var city = changeTheSpaces(city);
         var state = changeTheSpaces(state);
 
-
-        // for (var i = 0; i < state.length; i++) {
-        //     if (state.charAt(i) === " ") {
-        //         var state = state.replace(" ", "%20");
-        //     };
-        // };
-
         var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
@@ -68,25 +61,30 @@ $("#foodSearch").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
         var dataID = $(this).attr("data-id");
+        $("#searchFields").css("display", "block")
+        $("header").css("display", "none");
         if (dataID === "foodDiv") {
-            foodDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
         } else if (dataID === "drinkDiv") {
-            drinkDiv.css("visibility", "visible");
+            drinkDiv.css("display", "block");
         } else if (dataID === "both") {
-            foodDiv.css("visibility", "visible");
-            drinkDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
+            $("#spaceArea").css("display", "block")
+            drinkDiv.css("display", "block");
+            
         }
     });
 
-
-
-    $("#home").on("click", function () {
+    $("#home").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
+        $("header").css("display", "block");
         $("header").css("visibility", "visible");
-        foodDiv.css("visibility", "hidden");
-        drinkDiv.css("visibility", "hidden");
-
+        foodDiv.css("display", "none");
+        drinkDiv.css("display", "none");
+        $("#searchFields").css("display", "none")
+        $("#spaceArea").css("display", "none")
+    
     });
 
     function changeTheSpaces(name){
