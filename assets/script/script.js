@@ -1,38 +1,46 @@
 $(document).ready(function () {
-    $("a").on("click", function(){
-        $("header").css("visibility","hidden");
+    $("a").on("click", function () {
+        $("header").css("visibility", "hidden");
     });
 
-    // $(".submit").on("click", function (event) {
-    // event.preventDefault()
+    // starts function for the brewery search
+    $("#drinkSearch").on("click", function () {
+        var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
+        var city = $("#drinkCity").val();
+        var state = $("#drinkState").val();
 
-    var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
-    var city = "West Des Moines";
-    var state = "iowa";
+        // replaces spaces with %20
+        var city = changeTheSpaces(city);
+        var state = changeTheSpaces(state);
 
-    // replaces spaces with %20
-    for(var i=0; i <city.length; i++){
-        if (city.charAt(i) === " ") {
-    var city = city.replace(" ", "%20");
-        };
-    };
+        var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
+        var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
-    for(var i=0; i < state.length; i++){
-    if (state.charAt(i) === " ") {
-    var state = state.replace(" ", "%20");
-        };
-    };
+        var breweryURL = stateBreweryURL;
+        console.log(breweryURL);
+        $.ajax({
+            url: breweryURL,
+            method: "GET"
+        }).then(function (response) {
+            var theResult = response;
+            console.log(theResult);
+        });
 
-    var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
-    var stateBreweryURL = cityBreweryURL.replace("{state}", state);
+    });
 
-    var breweryURL = stateBreweryURL;
+    // starts function for restaurant search
+$("#foodSearch").on("click", function(){
+    var city = $("#foodCity").val().trim();
+    var keyWord = $("#foodType").val().trim();
 
-    console.log(breweryURL);
+    var city = changeTheSpaces(city);
+    var keyWord = changeTheSpaces(keyWord);
+
+    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
 
     // ajax for zomato
     $.ajax({
-        url: "https://developers.zomato.com/api/v2.1/search?entity_id=minneapolis&entity_type=city&q=burgers",
+        url: zomatoUrl,
         dataType: 'json',
         async: true,
         beforeSend: function (xhr) {
@@ -42,45 +50,49 @@ $(document).ready(function () {
     }).then(function (response) {
         console.log(response);
     });
+    console.log(zomatoUrl)
+})
 
-    // ajax for brewery
-    $.ajax({
-        url: breweryURL,
-        method: "GET"
-    }).then(function (response) {
-        var theResult = response;
-        console.log(theResult);
-    });
- 
 
-    $(".button").on("click", function(){
+    $(".button").on("click", function () {
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
         var dataID = $(this).attr("data-id");
-        console.log(dataID);
-
+        $("#searchFields").css("display", "block")
+        $("header").css("display", "none");
         if (dataID === "foodDiv") {
-            foodDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
         } else if (dataID === "drinkDiv") {
-            drinkDiv.css("visibility", "visible");
+            drinkDiv.css("display", "block");
         } else if (dataID === "both") {
-            foodDiv.css("visibility", "visible");
-            drinkDiv.css("visibility", "visible");
+            foodDiv.css("display", "block");
+            $("#spaceArea").css("display", "block")
+            drinkDiv.css("display", "block");
+            
         }
     });
-
-
 
     $("#home").on("click", function(){
         var foodDiv = $("#foodDiv")
         var drinkDiv = $("#drinkDiv")
-        $("header").css("visibility","visible");
-        foodDiv.css("visibility", "hidden");
-        drinkDiv.css("visibility", "hidden");
+        $("header").css("display", "block");
+        $("header").css("visibility", "visible");
+        foodDiv.css("display", "none");
+        drinkDiv.css("display", "none");
+        $("#searchFields").css("display", "none")
+        $("#spaceArea").css("display", "none")
     
     });
 
-
-
+    function changeTheSpaces(name){
+        var theName = name;
+        for (var i = 0; i < theName.length; i++) {
+            if (theName.charAt(i) === " ") {
+                var theName = theName.replace(" ", "%20");
+            };
+        };
+        return theName;
+    }
 
 });
+
