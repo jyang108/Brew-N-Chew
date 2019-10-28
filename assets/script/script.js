@@ -13,13 +13,6 @@ $(document).ready(function () {
         var city = changeTheSpaces(city);
         var state = changeTheSpaces(state);
 
-
-        // for (var i = 0; i < state.length; i++) {
-        //     if (state.charAt(i) === " ") {
-        //         var state = state.replace(" ", "%20");
-        //     };
-        // };
-
         var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
