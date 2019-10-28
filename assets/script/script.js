@@ -43,6 +43,9 @@ $("#foodSearch").on("click", function(){
     var city = changeTheSpaces(city);
     var keyWord = changeTheSpaces(keyWord);
 
+    console.log(city);
+    console.log(keyWord);
+
     var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
 
     // ajax for zomato
