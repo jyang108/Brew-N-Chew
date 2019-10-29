@@ -93,8 +93,24 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
-                console.log(response);
-            });
+                // var theFoodresult = response;
+                console.log(response.restaurants[0].name);
+            //     for (i = 0; i < theFoodresult.length; i++) {
+            //         console.log(breweryURL.length);
+            //         var breweryName = breweryURL[i].name;
+            //         var breweryType = breweryURL[i].brewery_type;
+            //         var brewerySite = breweryURL[i].website_url;
+    
+            //         resultName.text(breweryName);
+            //         resultType.text(breweryType);
+            //         resultLink.attr("href", brewerySite);
+    
+            //         $("main").append(resultCard);
+            //         resultCard.append(resultContent);
+            //         resultContent.append(resultName);
+            //         resultContent.append(resultType);
+            //         resultContent.append(resultLink);
+            // });
         }
     });
 
