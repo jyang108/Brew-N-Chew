@@ -1,4 +1,9 @@
 $(document).ready(function () {
+    var resultCard = $("<div class='card-body'>")
+    var resultName = $("<div class='card-title'>")
+    var resultInfo = $("<h3 class='card-text>")
+
+
     $("a").on("click", function () {
         $("header").css("visibility", "hidden");
     });
@@ -8,6 +13,9 @@ $(document).ready(function () {
     //   });
 
     // starts function for the brewery search
+
+    var resultCard = $("<div class='card'>")
+
     $("#drinkSearch").on("click", function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
@@ -17,7 +25,7 @@ $(document).ready(function () {
         var brewerySite = breweryURL.website_url;
         console.log(breweryName + breweryType + brewerySite);
 
-
+        
         // $("#drinkResults").append(breweryName);
 
         console.log(breweryURL);
@@ -25,10 +33,19 @@ $(document).ready(function () {
             url: breweryURL,
             method: "GET"
         }).then(function (response) {
-            var theResult = response;
-            console.log(theResult);
-        });
+            for (i = 0; i < response.length; i++ ) {
+            console.log(response[i].name);
+            resultName.text(response[i].name);
+            resultInfo.text(response[i].city + response[i].street);
+            
+            $("main").append(resultCard);
+            resultCard.append(resultName);
+            resultCard.append(resultInfo);
 
+            }
+        });
+        
+        $("#foodDiv").css("display", "none");
     });
 
     // starts function for restaurant search
