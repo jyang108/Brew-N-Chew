@@ -9,27 +9,16 @@ $(document).ready(function () {
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
-        var initialBreweryURL = "https://api.openbrewerydb.org/breweries?by_city={cityname}&by_state={state}";
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
+        var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
+        // var breweryName = breweryURL.name;
+        // var breweryType = breweryURL.brewery_type;
+        // var brewerySite = breweryURL.website_url;
+        // console.log(breweryName + breweryType + brewerySite);
 
-        // replaces spaces with %20
-        var city = changeTheSpaces(city);
-        var state = changeTheSpaces(state);
 
-        var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
-        var stateBreweryURL = cityBreweryURL.replace("{state}", state);
-
-        var breweryURL = stateBreweryURL;
-        var breweryName = breweryURL[1].name;
-        for(i=0; i < breweryURL.length; i++){
-            console.log(breweryURL.length);
-            var breweryName = breweryURL[i].name;
-            var breweryType = breweryURL[i].brewery_type;
-            var brewerySite = breweryURL[i].website_url;
-            console.log(breweryName + breweryType + brewerySite);
-            $("#drinkResults").append("<p>" + breweryName);
-        };
+        // var breweryName = breweryURL[1];
 
 
 
@@ -38,8 +27,19 @@ $(document).ready(function () {
             url: breweryURL,
             method: "GET"
         }).then(function (response) {
-            var theResult = response;
-            console.log(theResult);
+            var breweryURL = response;
+            // console.log(theResult);
+            for(i=0; i < breweryURL.length; i++){
+                console.log(breweryURL.length);
+                var breweryName = breweryURL[i].name;
+                var breweryType = breweryURL[i].brewery_type;
+                var brewerySite = breweryURL[i].website_url;
+                console.log(breweryName + breweryType + brewerySite);
+                
+                $("#drinkResults").append("<h2>" + breweryName);
+                $("#drinkResults").append("<h3>" + breweryType);
+                $("#drinkResults").append("<h3>" + brewerySite);
+            };
         });
 
     });
@@ -48,12 +48,6 @@ $(document).ready(function () {
 $("#foodSearch").on("click", function(){
     var city = $("#foodCity").val().trim();
     var keyWord = $("#foodType").val().trim();
-
-    var city = changeTheSpaces(city);
-    var keyWord = changeTheSpaces(keyWord);
-
-    console.log(city);
-    console.log(keyWord);
 
     var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
 
@@ -69,7 +63,6 @@ $("#foodSearch").on("click", function(){
     }).then(function (response) {
         console.log(response);
     });
-    console.log(zomatoUrl)
 })
 
 
@@ -102,16 +95,5 @@ $("#foodSearch").on("click", function(){
         $("#spaceArea").css("display", "none")
     
     });
-
-    function changeTheSpaces(name){
-        var theName = name;
-        for (var i = 0; i < theName.length; i++) {
-            if (theName.charAt(i) === " ") {
-                var theName = theName.replace(" ", "%20");
-            };
-        };
-        return theName;
-    }
-
 });
 
