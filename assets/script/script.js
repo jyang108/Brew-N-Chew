@@ -15,6 +15,7 @@ $(document).ready(function () {
 
         var cityBreweryURL = initialBreweryURL.replace("{cityname}", city);
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
+        
 
         var breweryURL = stateBreweryURL;
         console.log(breweryURL);
