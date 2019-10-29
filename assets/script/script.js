@@ -1,22 +1,24 @@
 $(document).ready(function () {
-    var resultCard = $("<div class='card-body'>")
-    var resultName = $("<div class='card-title'>")
+    var resultCard = $("<div class='card col-md-5'>")
+    var resultContent = $("<div class='card-body'>")
+    var resultName = $("<h2 class='card-title'>")
     var resultType = $("<h5 class='card-subtitle'>")
     var resultInfo = $("<h3 class='card-text'>")
     var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
 
+    var foodDiv = $("#foodDiv")
+    var drinkDiv = $("#drinkDiv")
 
+
+    var lat;
+    var lon;
     $("a").on("click", function () {
         $("header").css("visibility", "hidden");
     });
 
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position);
-    //   });
-
     // starts function for the brewery search
 
-   
+
 
     $("#drinkSearch").on("click", function () {
         var city = $("#drinkCity").val();
@@ -52,70 +54,77 @@ $(document).ready(function () {
                 resultLink.attr("href", brewerySite);
 
                 $("main").append(resultCard);
-                resultCard.append(resultName);
-                resultCard.append(resultType);
-                resultCard.append(resultLink);
+                resultCard.append(resultContent);
+                resultContent.append(resultName);
+                resultContent.append(resultType);
+                resultContent.append(resultLink);
 
+                // <h5 class="card-title">Card title</h5>
+                // <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                // <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                // <a href="#" class="card-link">Card link</a>
+                // <a href="#" class="card-link">Another link</a>
             };
-
-
         });
+        
+    });
+    $("#location").on("click", function (event) {
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(function (position) {
+            lat = position.coords.latitude;
+            lon = position.coords.latitude;
+        });
+    })
+    // starts function for restaurant search
+    $("#foodSearch").on("click", function () {
+        if (lat === undefined) {
+            alert("need to know your location");
+        }
+        else {
+            var keyWord = $("#foodType").val().trim();
+            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon;
+            // ajax for zomato
+            $.ajax({
+                url: zomatoUrl,
+                dataType: 'json',
+                async: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('user-key',
+                        'd88928eafacfec3391be0d039bd9daa4');
+                },
+            }).then(function (response) {
+                console.log(response);
+            });
+        }
     });
 
 
-});
+    $(".button").on("click", function () {
+        var dataID = $(this).attr("data-id");
+        $("#searchFields").css("display", "block")
+        $("header").css("display", "none");
+        if (dataID === "foodDiv") {
+            foodDiv.css("display", "block");
+        } else if (dataID === "drinkDiv") {
+            drinkDiv.css("display", "block");
+        } else if (dataID === "both") {
+            foodDiv.css("display", "block");
+            $("#spaceArea").css("display", "block")
+            drinkDiv.css("display", "block");
 
-
-// starts function for restaurant search
-$("#foodSearch").on("click", function () {
-    var city = $("#foodCity").val().trim();
-    var keyWord = $("#foodType").val().trim();
-
-    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
-
-    // ajax for zomato
-    $.ajax({
-        url: zomatoUrl,
-        dataType: 'json',
-        async: true,
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader('user-key',
-                'd88928eafacfec3391be0d039bd9daa4');
-        },
-    }).then(function (response) {
-        console.log(response);
+        }
     });
-})
 
+    $("#home").on("click", function () {
+        var foodDiv = $("#foodDiv")
+        var drinkDiv = $("#drinkDiv")
+        $("header").css("display", "block");
+        $("header").css("visibility", "visible");
+        foodDiv.css("display", "none");
+        drinkDiv.css("display", "none");
+        $("#searchFields").css("display", "none")
+        $("#spaceArea").css("display", "none")
 
-$(".button").on("click", function () {
-    var foodDiv = $("#foodDiv")
-    var drinkDiv = $("#drinkDiv")
-    var dataID = $(this).attr("data-id");
-    $("#searchFields").css("display", "block")
-    $("header").css("display", "none");
-    if (dataID === "foodDiv") {
-        foodDiv.css("display", "block");
-    } else if (dataID === "drinkDiv") {
-        drinkDiv.css("display", "block");
-    } else if (dataID === "both") {
-        foodDiv.css("display", "block");
-        $("#spaceArea").css("display", "block")
-        drinkDiv.css("display", "block");
-
-    }
-});
-
-$("#home").on("click", function () {
-    var foodDiv = $("#foodDiv")
-    var drinkDiv = $("#drinkDiv")
-    $("header").css("display", "block");
-    $("header").css("visibility", "visible");
-    foodDiv.css("display", "none");
-    drinkDiv.css("display", "none");
-    $("#searchFields").css("display", "none")
-    $("#spaceArea").css("display", "none")
-
-});
+    });
 });
 
