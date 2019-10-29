@@ -68,3 +68,33 @@ a.button:hover {
     display: none;
 }
 
+.container{
+    width: 986px;
+    margin: 0 auto;
+    background-color: #ff711e;
+    margin-top:60px;
+    outline:1px orange;
+    font-family: "Timmana" , sans-serif;
+
+}
+
+.container2{
+    width: 986px;
+    margin: 0 auto;
+    background-color: #ff711e;
+    margin-top:60px;
+    outline:1px orange;
+    font-family: "Timmana" , sans-serif;
+
+}
+
+form-group{
+    width: 986px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top:60px;
+    outline:1px orange;
+    font-family: "Timmana" , sans-serif;
+}
+
+
