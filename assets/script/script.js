@@ -10,21 +10,40 @@ $(document).ready(function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
-        var breweryName = breweryURL.name;
-        var breweryType = breweryURL.brewery_type;
-        var brewerySite = breweryURL.website_url;
-        console.log(breweryName + breweryType + brewerySite);
+        // var breweryName = breweryURL.name;
+        // var breweryType = breweryURL.brewery_type;
+        // var brewerySite = breweryURL.website_url;
+        // console.log(breweryName + breweryType + brewerySite);
 
 
-        // $("#drinkResults").append(breweryName);
+        // var breweryName = breweryURL[1];
+
+
 
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
             method: "GET"
         }).then(function (response) {
-            var theResult = response;
-            console.log(theResult);
+            var breweryURL = response;
+            // console.log(theResult);
+            for(i=0; i < breweryURL.length; i++){
+                console.log(breweryURL.length);
+                var breweryName = breweryURL[i].name;
+                var breweryType = breweryURL[i].brewery_type;
+                var brewerySite = breweryURL[i].website_url;
+
+                var drinkResultCard = $("#drinkResults").append("<div class ='card'>");
+                var drinkResultCardBody = drinkResultCard.append("<div class='card-body'");
+
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+            };
         });
     });
 $("#location").on("click", function(event){
