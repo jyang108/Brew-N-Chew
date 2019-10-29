@@ -11,6 +11,9 @@ h1{
 
 body{
     background-image: url("../images/zwartevilt/zwartevilt.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 #headContainer {
@@ -49,6 +52,7 @@ a.button:hover {
     color: #ffaa3c;
 }
 
+<<<<<<< HEAD
 a.nav-link{
     font-family: "Timmana" , sans-serif;
 
@@ -59,6 +63,8 @@ main {
 }
 
 
+=======
+>>>>>>> e24f17822c7e410cba8687c3dfea4b6fcbd1ad46
 #foodDiv {
     display: none;
 }
@@ -77,18 +83,17 @@ main {
 .container2{
     width: 986px;
     margin: 0 auto;
-    background-color: white;
+    background-color: #ff711e;
     margin-top:60px;
     outline:1px orange;
     font-family: "Timmana" , sans-serif;
-    
 
 }
 
 #drinkResults {
     color: white;
 }
-
-.drinkResult {
-    color:white;
+.foodResults{
+    background-color: white;
 }
+

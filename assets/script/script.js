@@ -80,7 +80,7 @@ $(document).ready(function () {
     // starts function for restaurant search
     $("#foodSearch").on("click", function () {
         if (lat === undefined) {
-            alert("need to know your location");
+            alert("Please Enable Location Services");
         }
         else {
             var keyWord = $("#foodType").val().trim();
@@ -95,7 +95,25 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
-                console.log(response);
+                $("#foodResults").empty()
+                var theFoodresult = response;
+                for (i = 0; i < theFoodresult.restaurants.length; i++) {
+                    var restaurantName = response.restaurants[i].restaurant.name;
+                    var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
+                    var restaurantLocation = response.restaurants[i].restaurant.location.address ;
+                    var newDiv = $("<div>");
+                    var nameTag = $("<h3>");
+                    var restNumber = $("<p>");
+                    var restAddress = $("<p>");
+                    nameTag.text(restaurantName);
+                    restNumber.text(restaurantPhone);
+                    restAddress.text(restaurantLocation);
+                    newDiv.append(nameTag);
+                    newDiv.append(restNumber);
+                    newDiv.append(restAddress);
+                    $("#foodResults").append(newDiv);
+                    newDiv.addClass("foodResults");
+                }
             });
         }
     });
