@@ -1,10 +1,13 @@
 $(document).ready(function () {
-    var resultCard = $("<div class='card col-md-5'>")
-    var resultContent = $("<div class='card-body'>")
-    var resultName = $("<h2 class='card-title'>")
-    var resultType = $("<h5 class='card-subtitle'>")
-    var resultInfo = $("<h3 class='card-text'>")
-    var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+
+    // var resultRow =$("<div class='row'>")
+    // var resultCard = $("<div class='card col-md-5'>")
+    // var resultContent = $("<div class='card-body'>")
+    // var resultName = $("<h2 class='card-title'>")
+    // var resultType = $("<h5 class='card-subtitle'>")
+    // var resultInfo = $("<h3 class='card-text'>")
+    // var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+    
 
     var foodDiv = $("#foodDiv")
     var drinkDiv = $("#drinkDiv")
@@ -28,46 +31,45 @@ $(document).ready(function () {
         // var breweryType = breweryURL.brewery_type;
         // var brewerySite = breweryURL.website_url;
         // console.log(breweryName + breweryType + brewerySite);
-
-
         // var breweryName = breweryURL[1];
-
-
         // $("#drinkResults").append(breweryName);
-
 
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
             method: "GET"
         }).then(function (response) {
-            var breweryURL = response;
-            // console.log(theResult);
-            for (i = 0; i < breweryURL.length; i++) {
-                console.log(breweryURL.length);
-                var breweryName = breweryURL[i].name;
-                var breweryType = breweryURL[i].brewery_type;
-                var brewerySite = breweryURL[i].website_url;
+            var breweryResults = response;
+            console.log(breweryResults);
+            for (var i = 0; i < breweryResults.length; i++) {
+                console.log(breweryResults[i].name);
+                var breweryName = breweryResults[i].name;
+                var breweryType = breweryResults[i].brewery_type;
+                var brewerySite = breweryResults[i].website_url;
+
+                var resultRow =$("<div class='row'>")
+                var resultCard = $("<div class='card col-md-5'>")
+                var resultContent = $("<div class='card-body'>")
+                var resultName = $("<h2 class='card-title'>")
+                var resultType = $("<h5 class='card-subtitle'>")
+                var resultInfo = $("<h3 class='card-text'>")
+                var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
 
                 resultName.text(breweryName);
                 resultType.text(breweryType);
                 resultLink.attr("href", brewerySite);
 
-                $("main").append(resultCard);
+                $("main").append(resultRow);
+                resultRow.append(resultCard);
                 resultCard.append(resultContent);
                 resultContent.append(resultName);
                 resultContent.append(resultType);
                 resultContent.append(resultLink);
-
-                // <h5 class="card-title">Card title</h5>
-                // <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                // <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                // <a href="#" class="card-link">Card link</a>
-                // <a href="#" class="card-link">Another link</a>
             };
         });
         
     });
+
     $("#location").on("click", function (event) {
         event.preventDefault();
         navigator.geolocation.getCurrentPosition(function (position) {

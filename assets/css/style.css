@@ -54,10 +54,14 @@ a.nav-link{
 
 }
 
+main {
+    height: 100%;
+}
+
+
 #foodDiv {
     display: none;
 }
-
 #drinkDiv {
     display: none;
 }
