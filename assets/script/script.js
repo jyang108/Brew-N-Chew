@@ -1,11 +1,9 @@
 $(document).ready(function () {
+    var lat;
+    var lon;
     $("a").on("click", function () {
         $("header").css("visibility", "hidden");
     });
-
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position);
-    //   });
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
@@ -34,23 +32,35 @@ $(document).ready(function () {
                 var breweryName = breweryURL[i].name;
                 var breweryType = breweryURL[i].brewery_type;
                 var brewerySite = breweryURL[i].website_url;
-                console.log(breweryName + breweryType + brewerySite);
-                
-                $("#drinkResults").append("<h2>" + breweryName);
-                $("#drinkResults").append("<h3>" + breweryType);
-                $("#drinkResults").append("<h3>" + brewerySite);
+
+                var drinkResultCard = $("#drinkResults").append("<div class ='card'>");
+                var drinkResultCardBody = drinkResultCard.append("<div class='card-body'");
+
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
             };
         });
-
     });
-
+$("#location").on("click", function(event){
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.latitude;
+      });
+})
     // starts function for restaurant search
 $("#foodSearch").on("click", function(){
-    var city = $("#foodCity").val().trim();
+    if(lat === undefined){
+        alert("need to know your location");
+    }
+    else{
     var keyWord = $("#foodType").val().trim();
-
-    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
-
+    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon;
     // ajax for zomato
     $.ajax({
         url: zomatoUrl,
@@ -63,7 +73,8 @@ $("#foodSearch").on("click", function(){
     }).then(function (response) {
         console.log(response);
     });
-})
+}
+});
 
 
     $(".button").on("click", function () {
