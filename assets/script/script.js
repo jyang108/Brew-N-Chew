@@ -3,9 +3,9 @@ $(document).ready(function () {
         $("header").css("visibility", "hidden");
     });
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        console.log(position);
-      });
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //     console.log(position);
+    //   });
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
@@ -21,14 +21,17 @@ $(document).ready(function () {
         var stateBreweryURL = cityBreweryURL.replace("{state}", state);
 
         var breweryURL = stateBreweryURL;
+        var breweryName = breweryURL[1].name;
+        for(i=0; i < breweryURL.length; i++){
+            console.log(breweryURL.length);
+            var breweryName = breweryURL[i].name;
+            var breweryType = breweryURL[i].brewery_type;
+            var brewerySite = breweryURL[i].website_url;
+            console.log(breweryName + breweryType + brewerySite);
+            $("#drinkResults").append("<p>" + breweryName);
+        };
 
-        var breweryName = breweryURL.name;
-        var breweryType = breweryURL.brewery_type;
-        var brewerySite = breweryURL.website_url;
-        console.log(breweryName + breweryType + brewerySite);
 
-
-        // $("#drinkResults").append(breweryName);
 
         console.log(breweryURL);
         $.ajax({
