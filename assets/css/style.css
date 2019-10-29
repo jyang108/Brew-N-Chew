@@ -53,6 +53,11 @@ a.button:hover {
     color: #ffaa3c;
 }
 
+a.nav-link{
+    font-family: "Timmana" , sans-serif;
+
+}
+
 #foodDiv {
     display: none;
 }
