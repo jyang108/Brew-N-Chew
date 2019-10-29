@@ -78,7 +78,7 @@ $(document).ready(function () {
     // starts function for restaurant search
     $("#foodSearch").on("click", function () {
         if (lat === undefined) {
-            alert("need to know your location");
+            alert("Please Enable Location Services");
         }
         else {
             var keyWord = $("#foodType").val().trim();
