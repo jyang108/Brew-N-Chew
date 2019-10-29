@@ -43,7 +43,7 @@ $(document).ready(function () {
         }).then(function (response) {
             var breweryURL = response;
             // console.log(theResult);
-            for (i = 0; i < breweryURL.length; i++) {
+            for (var i = 0; i < breweryURL.length; i++) {
                 console.log(breweryURL.length);
                 var breweryName = breweryURL[i].name;
                 var breweryType = breweryURL[i].brewery_type;
