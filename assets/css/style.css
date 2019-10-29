@@ -10,9 +10,10 @@ h1{
 
 
 body{
-    background-image: url("../images/food_unsplash.jpg");
+    background-image: url("../images/zwartevilt/zwartevilt.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 #headContainer {
