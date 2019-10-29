@@ -93,24 +93,26 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
-                // var theFoodresult = response;
-                console.log(response.restaurants[0].name);
-            //     for (i = 0; i < theFoodresult.length; i++) {
-            //         console.log(breweryURL.length);
-            //         var breweryName = breweryURL[i].name;
-            //         var breweryType = breweryURL[i].brewery_type;
-            //         var brewerySite = breweryURL[i].website_url;
-    
-            //         resultName.text(breweryName);
-            //         resultType.text(breweryType);
-            //         resultLink.attr("href", brewerySite);
-    
-            //         $("main").append(resultCard);
-            //         resultCard.append(resultContent);
-            //         resultContent.append(resultName);
-            //         resultContent.append(resultType);
-            //         resultContent.append(resultLink);
-            // });
+                $("#foodResults").empty()
+                var theFoodresult = response;
+                for (i = 0; i < theFoodresult.restaurants.length; i++) {
+                    var restaurantName = response.restaurants[i].restaurant.name;
+                    var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
+                    var restaurantLocation = response.restaurants[i].restaurant.location.address ;
+                    var newDiv = $("<div>");
+                    var nameTag = $("<h3>");
+                    var restNumber = $("<p>");
+                    var restAddress = $("<p>");
+                    nameTag.text(restaurantName);
+                    restNumber.text(restaurantPhone);
+                    restAddress.text(restaurantLocation);
+                    newDiv.append(nameTag);
+                    newDiv.append(restNumber);
+                    newDiv.append(restAddress);
+                    $("#foodResults").append(newDiv);
+                    newDiv.addClass("foodResults");
+                }
+            });
         }
     });
 
