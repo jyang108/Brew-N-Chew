@@ -1,11 +1,9 @@
 $(document).ready(function () {
+    var lat;
+    var lon;
     $("a").on("click", function () {
         $("header").css("visibility", "hidden");
     });
-
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //     console.log(position);
-    //   });
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
@@ -28,16 +26,22 @@ $(document).ready(function () {
             var theResult = response;
             console.log(theResult);
         });
-
     });
-
+$("#location").on("click", function(event){
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.latitude;
+      });
+})
     // starts function for restaurant search
 $("#foodSearch").on("click", function(){
-    var city = $("#foodCity").val().trim();
+    if(lat === undefined){
+        alert("need to know your location");
+    }
+    else{
     var keyWord = $("#foodType").val().trim();
-
-    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + city + "&entity_type=city&q=" + keyWord;
-
+    var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon;
     // ajax for zomato
     $.ajax({
         url: zomatoUrl,
@@ -50,7 +54,8 @@ $("#foodSearch").on("click", function(){
     }).then(function (response) {
         console.log(response);
     });
-})
+}
+});
 
 
     $(".button").on("click", function () {
