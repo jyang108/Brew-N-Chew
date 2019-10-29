@@ -8,10 +8,6 @@ h1{
     font-family: "Timmana" , sans-serif;
 }
 
-h2{
-    float: right;
-    
-}
 
 body{
     background-image: url("../images/zwartevilt/zwartevilt.png");
@@ -85,5 +81,10 @@ a.nav-link{
 
 }
 
+#drinkResults {
+    color: white;
+}
 
-
+.drinkResult {
+    
+}
