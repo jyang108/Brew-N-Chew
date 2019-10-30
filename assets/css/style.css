@@ -72,16 +72,6 @@ main {
 }
 
 
-.container2{
-    width: 986px;
-    margin: 0 auto;
-    background-color: #ff711e;
-    margin-top:60px;
-    outline:1px orange;
-    font-family: "Timmana" , sans-serif;
-
-}
-
 #drinkResults {
     color: white;
 }
