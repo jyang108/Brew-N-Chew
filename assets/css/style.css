@@ -8,10 +8,10 @@ h1{
     font-family: "Timmana" , sans-serif;
 }
 
-
 body{
     background-image: url("../images/zwartevilt/zwartevilt.png");
-    background-repeat: no-repeat;
+    height: 100%;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
 }
@@ -35,7 +35,6 @@ body{
 header {
     display: block;
 }
-
 .button{
     bottom: 0;
     font-size: 3vw;
@@ -43,16 +42,12 @@ header {
     padding: 0%;
     margin: .5vw;
 }
-
 a.button {
     color: #ff5e00;
 }
-
 a.button:hover {
     color: #ffaa3c;
 }
-
-<<<<<<< HEAD
 a.nav-link{
     font-family: "Timmana" , sans-serif;
 
@@ -63,8 +58,6 @@ main {
 }
 
 
-=======
->>>>>>> e24f17822c7e410cba8687c3dfea4b6fcbd1ad46
 #foodDiv {
     display: none;
 }
@@ -74,7 +67,6 @@ main {
 #spaceArea{
     display: none;
 }
-
 #searchFields {
     display: none;
 }
@@ -95,5 +87,5 @@ main {
 }
 .foodResults{
     background-color: white;
-}
+} 
 
