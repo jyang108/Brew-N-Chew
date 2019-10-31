@@ -54,7 +54,7 @@ $(document).ready(function () {
         });
 
         $("#drinkDiv").hide();
- 
+
     });
 
     $("#location").on("click", function (event) {
