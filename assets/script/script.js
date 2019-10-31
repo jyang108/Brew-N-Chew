@@ -14,7 +14,10 @@ $(document).ready(function () {
     $("#drinkSearch").on("click", function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
-        var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
+        var type = $("#drinkType").val();
+        var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state) + "&by_type=" + type;
+
+        
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
