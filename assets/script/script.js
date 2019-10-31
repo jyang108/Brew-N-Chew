@@ -30,8 +30,13 @@ $(document).ready(function () {
                 var brewerySite = breweryResults[i].website_url;
                 var breweryInfo = breweryResults[i].city + " " + breweryResults[i].street;
 
+<<<<<<< HEAD
+                var resultRow =$("<div class='row drinkCard'>")
+                var resultCard = $("<div class='card col-md-5'>")
+=======
                 var resultRow = $("<div class='row mb-3'>")
                 var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
+>>>>>>> refs/remotes/origin/master
                 var resultContent = $("<div class='card-body'>")
                 var resultName = $("<h2 class='card-title'>")
                 var resultType = $("<h5 class='card-subtitle'>")
@@ -115,7 +120,11 @@ $(document).ready(function () {
             $("#drinkDivContainer").hide();
         } else if (dataID === "drinkDiv") {
             drinkDiv.css("display", "block");
+<<<<<<< HEAD
+            foodDiv.css("display", "none");
+=======
             $("#foodDivContainer").hide();
+>>>>>>> refs/remotes/origin/master
         } else if (dataID === "both") {
             foodDiv.css("display", "block");
             $("#spaceArea").css("display", "block")
