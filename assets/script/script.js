@@ -15,7 +15,6 @@ $(document).ready(function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
-
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
@@ -67,15 +66,19 @@ $(document).ready(function () {
     // starts function for restaurant search
     $("#foodSearch").on("click", function () {
         var keyWord = $("#foodType").val().trim();
+        var chooseSorting = $("#selectSorting").val();
         if (lat === undefined) {
             $("#message").text("Please Enable Location Services");
         }
         else if(keyWord === ""){
             $("#message").text("Please Enter A Type Of Food");
         }
+        else if(chooseSorting === ""){
+            $("#message").text("Please Select A Type Of Sorting");
+        }
         else {
             var theSorting = "real_distance";
-            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + theSorting;
+            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + chooseSorting;
             // ajax for zomato
             $.ajax({
                 url: zomatoUrl,

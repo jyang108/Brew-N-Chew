@@ -27,7 +27,6 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
-    <a class="navbar-brand" href="index.html">Brew N Chew</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -83,6 +82,13 @@
                   <div class="form-group">
                       <label>Type of food</label>
                       <input class="form-control" id="foodType" rows="1" placeholder="American, Chinese, Ethiopian, Mexican..."></input>
+                      <label>Sorting</label>
+                      <select class="form-control" id="selectSorting">
+                        <option></option>
+                        <option>rating</option>
+                        <option>cost</option>
+                        <option>real_distance</option>
+                      </select>
                     </div>
                 </form>
                 <p id="message"></p>
