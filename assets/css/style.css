@@ -100,7 +100,18 @@ main {
     font-family: "Timmana" , sans-serif;
     padding: 10px;
 }
-
+#resultBtn{
+    margin: auto;
+}
+#foodResultBtn{
+    display: none;
+    float: left;
+}
+#drinkResultBtn{
+    display: none;
+    float: left;
+    
+}
 
 
 @media only screen and (max-width: 700px) {
