@@ -8,10 +8,15 @@ h1{
     font-family: "Timmana" , sans-serif;
 }
 
+@font-face{
+    font-family: "delirium";
+    src: url(delirium.ttf);
+}
+
 
 body{
     background-image: url("../images/zwartevilt/zwartevilt.png");
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     background-position: center;
 }
@@ -22,8 +27,8 @@ body{
     margin-top: 7%;
 }
 #headTitle{
-    font-size: 16vw;
-    font-family: "Timmana" , sans-serif;
+    font-size: 24vw;
+    font-family: "delirium";
     color: #ff711e;
     width: 100%;
     text-align: center;
@@ -35,7 +40,6 @@ body{
 header {
     display: block;
 }
-
 .button{
     bottom: 0;
     font-size: 3vw;
@@ -43,14 +47,25 @@ header {
     padding: 0%;
     margin: .5vw;
 }
-
 a.button {
     color: #ff5e00;
 }
-
 a.button:hover {
     color: #ffaa3c;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> refs/remotes/origin/master
+a.nav-link{
+    font-family: "Timmana" , sans-serif;
+
+}
+
+main {
+    height: 100%;
+}
+
 
 #foodDiv {
     display: none;
@@ -61,7 +76,6 @@ a.button:hover {
 #spaceArea{
     display: none;
 }
-
 #searchFields {
     display: none;
 }
@@ -72,5 +86,8 @@ a.button:hover {
 }
 .foodResults{
     background-color: white;
-}
+} 
 
+.drinkCard {
+    padding: 10px;
+}
