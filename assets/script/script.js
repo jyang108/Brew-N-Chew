@@ -86,26 +86,47 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
-                $("#foodResults").empty()
                 var theFoodresult = response;
                 for (i = 0; i < theFoodresult.restaurants.length; i++) {
                     var restaurantName = response.restaurants[i].restaurant.name;
                     var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
                     var restaurantLocation = response.restaurants[i].restaurant.location.address;
-                    var newDiv = $("<div>");
-                    var nameTag = $("<h3>");
-                    var restNumber = $("<p>");
-                    var restAddress = $("<p>");
-                    nameTag.text(restaurantName);
-                    restNumber.text(restaurantPhone);
-                    restAddress.text(restaurantLocation);
-                    newDiv.append(nameTag);
-                    newDiv.append(restNumber);
-                    newDiv.append(restAddress);
-                    $("#foodResults").append(newDiv);
+                    // var newDiv = $("<div>");
+                    // var nameTag = $("<h3>");
+                    // var restNumber = $("<p>");
+                    // var restAddress = $("<p>");
+                    // nameTag.text(restaurantName);
+                    // restNumber.text(restaurantPhone);
+                    // restAddress.text(restaurantLocation);
+                    // newDiv.append(nameTag);
+                    // newDiv.append(restNumber);
+                    // newDiv.append(restAddress);
+                    // $("#foodResults").append(newDiv);
+
+                    var resultRow = $("<div class='row mb-3'>")
+                    var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
+                    var resultContent = $("<div class='card-body'>")
+                    var resultName = $("<h2 class='card-title'>")
+                    var resultSub = $("<h5 class='card-subtitle'>")
+                    var resultInfo = $("<h4 class='card-text'>")
+                    // var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+    
+                    resultInfo.text(restaurantLocation);
+                    resultName.text(restaurantName);
+                    resultSub.text(restaurantPhone);
+                    // resultLink.attr("href", brewerySite);
+    
+                    $("#foodDivContainer").append(resultRow);
+                    resultRow.append(resultCard);
+                    resultCard.append(resultContent);
+                    resultContent.append(resultName);
+                    resultContent.append(resultSub);
+                    resultContent.append(resultInfo);
+                    // resultContent.append(resultLink);
                 }
             });
         }
+        $("#foodDiv").hide();
     });
 
 
