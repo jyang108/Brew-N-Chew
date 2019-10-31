@@ -21,6 +21,10 @@ body{
     background-position: center;
 }
 
+.jumbotron{
+    margin:0;
+    padding:0;
+}
 #headContainer {
     width: 100%;
     margin-left: auto;
@@ -62,7 +66,6 @@ main {
     height: 100%;
 }
 
-
 #foodDiv {
     display: none;
 }
@@ -85,5 +88,15 @@ main {
 } 
 
 .drinkCard {
+    padding: 10px;
+}
+
+.about{
+    width: auto;
+    margin: 0 auto;
+    background-color: #ff711e;
+    margin-top:60px;
+    outline:1px orange;
+    font-family: "Timmana" , sans-serif;
     padding: 10px;
 }
