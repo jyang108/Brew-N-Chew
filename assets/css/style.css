@@ -50,6 +50,7 @@ header {
     font-family: 'Raleway', sans-serif;
     padding: 0%;
     margin: .5vw;
+    float: right;
 }
 a.button {
     color: #ff5e00;
@@ -124,4 +125,22 @@ main {
         font-size: 8vw;
         text-align: center;
     }
-  }
+}
+
+.btn{
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    font-size: 13px;
+    text-transform: uppercase;
+    display: inline-block;
+    background-color:#ff711e;
+    float: right;
+}
+
+.navBar{
+    margin-right: 18%;
+    
+}
