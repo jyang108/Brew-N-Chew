@@ -15,7 +15,6 @@ $(document).ready(function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
-
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
@@ -67,15 +66,22 @@ $(document).ready(function () {
     // starts function for restaurant search
     $("#foodSearch").on("click", function () {
         var keyWord = $("#foodType").val().trim();
+        var chooseSorting = $("#selectSorting").val();
+        if(chooseSorting === "distance"){
+            chooseSorting = "real_distance";
+        }
         if (lat === undefined) {
             $("#message").text("Please Enable Location Services");
         }
         else if(keyWord === ""){
             $("#message").text("Please Enter A Type Of Food");
         }
+        else if(chooseSorting === ""){
+            $("#message").text("Please Select A Type Of Sorting");
+        }
         else {
             var theSorting = "real_distance";
-            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + theSorting;
+            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + chooseSorting;
             // ajax for zomato
             $.ajax({
                 url: zomatoUrl,
@@ -86,26 +92,47 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
-                $("#foodResults").empty()
                 var theFoodresult = response;
                 for (i = 0; i < theFoodresult.restaurants.length; i++) {
                     var restaurantName = response.restaurants[i].restaurant.name;
                     var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
                     var restaurantLocation = response.restaurants[i].restaurant.location.address;
-                    var newDiv = $("<div>");
-                    var nameTag = $("<h3>");
-                    var restNumber = $("<p>");
-                    var restAddress = $("<p>");
-                    nameTag.text(restaurantName);
-                    restNumber.text(restaurantPhone);
-                    restAddress.text(restaurantLocation);
-                    newDiv.append(nameTag);
-                    newDiv.append(restNumber);
-                    newDiv.append(restAddress);
-                    $("#foodResults").append(newDiv);
+                    // var newDiv = $("<div>");
+                    // var nameTag = $("<h3>");
+                    // var restNumber = $("<p>");
+                    // var restAddress = $("<p>");
+                    // nameTag.text(restaurantName);
+                    // restNumber.text(restaurantPhone);
+                    // restAddress.text(restaurantLocation);
+                    // newDiv.append(nameTag);
+                    // newDiv.append(restNumber);
+                    // newDiv.append(restAddress);
+                    // $("#foodResults").append(newDiv);
+
+                    var resultRow = $("<div class='row mb-3'>")
+                    var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
+                    var resultContent = $("<div class='card-body'>")
+                    var resultName = $("<h2 class='card-title'>")
+                    var resultSub = $("<h5 class='card-subtitle'>")
+                    var resultInfo = $("<h4 class='card-text'>")
+                    // var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+    
+                    resultInfo.text(restaurantLocation);
+                    resultName.text(restaurantName);
+                    resultSub.text(restaurantPhone);
+                    // resultLink.attr("href", brewerySite);
+    
+                    $("#foodDivContainer").append(resultRow);
+                    resultRow.append(resultCard);
+                    resultCard.append(resultContent);
+                    resultContent.append(resultName);
+                    resultContent.append(resultSub);
+                    resultContent.append(resultInfo);
+                    // resultContent.append(resultLink);
                 }
             });
         }
+        $("#foodDiv").hide();
     });
 
 
