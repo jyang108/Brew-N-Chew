@@ -38,7 +38,8 @@ body{
 
 }
 #searchNav {
-    margin-left: 20%;
+    text-align: center;
+    margin-left: 18%;
 }
 header {
     display: block;
@@ -99,3 +100,17 @@ main {
     font-family: "Timmana" , sans-serif;
     padding: 10px;
 }
+
+
+
+@media only screen and (max-width: 700px) {
+    #searchNav{
+        flex-direction: column !important;
+        font-size: 100px;
+        margin:0;
+    }
+    .nav-link{
+        font-size: 8vw;
+        text-align: center;
+    }
+  }
