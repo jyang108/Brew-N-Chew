@@ -79,12 +79,16 @@ $(document).ready(function () {
     })
     // starts function for restaurant search
     $("#foodSearch").on("click", function () {
+        var keyWord = $("#foodType").val().trim();
         if (lat === undefined) {
-            alert("Please Enable Location Services");
+            $("#message").text("Please Enable Location Services");
+        }
+        else if(keyWord === ""){
+            $("#message").text("Please Enter A Type Of Food");
         }
         else {
-            var keyWord = $("#foodType").val().trim();
-            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon;
+            var theSorting = "real_distance";
+            var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + theSorting;
             // ajax for zomato
             $.ajax({
                 url: zomatoUrl,
@@ -112,7 +116,6 @@ $(document).ready(function () {
                     newDiv.append(restNumber);
                     newDiv.append(restAddress);
                     $("#foodResults").append(newDiv);
-                    newDiv.addClass("foodResults");
                 }
             });
         }
