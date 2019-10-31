@@ -1,10 +1,12 @@
-.container2{
+.container-2{
     width: 986px;
     margin: 0 auto;
     background-color: #ff711e;
     margin-top:60px;
     outline:1px orange;
     font-family: "Timmana" , sans-serif;
+    color: white;
+    
 
 }
 
@@ -15,8 +17,6 @@
     
 }
 
-@media only screen and (max-width: 784px) {
-    
-}
+
 
 
