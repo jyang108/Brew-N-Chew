@@ -67,6 +67,9 @@ $(document).ready(function () {
     $("#foodSearch").on("click", function () {
         var keyWord = $("#foodType").val().trim();
         var chooseSorting = $("#selectSorting").val();
+        if(chooseSorting === "distance"){
+            chooseSorting = "real_distance";
+        }
         if (lat === undefined) {
             $("#message").text("Please Enable Location Services");
         }
