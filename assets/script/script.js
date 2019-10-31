@@ -1,14 +1,5 @@
 $(document).ready(function () {
 
-    // var resultRow =$("<div class='row'>")
-    // var resultCard = $("<div class='card col-md-5'>")
-    // var resultContent = $("<div class='card-body'>")
-    // var resultName = $("<h2 class='card-title'>")
-    // var resultType = $("<h5 class='card-subtitle'>")
-    // var resultInfo = $("<h3 class='card-text'>")
-    // var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
-    
-
     var foodDiv = $("#foodDiv")
     var drinkDiv = $("#drinkDiv")
 
@@ -20,19 +11,10 @@ $(document).ready(function () {
     });
 
     // starts function for the brewery search
-
-
-
     $("#drinkSearch").on("click", function () {
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state);
-        // var breweryName = breweryURL.name;
-        // var breweryType = breweryURL.brewery_type;
-        // var brewerySite = breweryURL.website_url;
-        // console.log(breweryName + breweryType + brewerySite);
-        // var breweryName = breweryURL[1];
-        // $("#drinkResults").append(breweryName);
 
         console.log(breweryURL);
         $.ajax({
@@ -46,28 +28,33 @@ $(document).ready(function () {
                 var breweryName = breweryResults[i].name;
                 var breweryType = breweryResults[i].brewery_type;
                 var brewerySite = breweryResults[i].website_url;
+                var breweryInfo = breweryResults[i].city + " " + breweryResults[i].street;
 
-                var resultRow =$("<div class='row'>")
-                var resultCard = $("<div class='card col-md-5'>")
+                var resultRow = $("<div class='row mb-3'>")
+                var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
                 var resultContent = $("<div class='card-body'>")
                 var resultName = $("<h2 class='card-title'>")
                 var resultType = $("<h5 class='card-subtitle'>")
-                var resultInfo = $("<h3 class='card-text'>")
+                var resultInfo = $("<h4 class='card-text'>")
                 var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
 
+                resultInfo.text(breweryInfo);
                 resultName.text(breweryName);
                 resultType.text(breweryType);
                 resultLink.attr("href", brewerySite);
 
-                $("main").append(resultRow);
+                $("#drinkDivContainer").append(resultRow);
                 resultRow.append(resultCard);
                 resultCard.append(resultContent);
                 resultContent.append(resultName);
                 resultContent.append(resultType);
+                resultContent.append(resultInfo);
                 resultContent.append(resultLink);
             };
         });
-        
+
+        $("#drinkDiv").hide();
+
     });
 
     $("#location").on("click", function (event) {
@@ -100,7 +87,7 @@ $(document).ready(function () {
                 for (i = 0; i < theFoodresult.restaurants.length; i++) {
                     var restaurantName = response.restaurants[i].restaurant.name;
                     var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
-                    var restaurantLocation = response.restaurants[i].restaurant.location.address ;
+                    var restaurantLocation = response.restaurants[i].restaurant.location.address;
                     var newDiv = $("<div>");
                     var nameTag = $("<h3>");
                     var restNumber = $("<p>");
@@ -125,8 +112,10 @@ $(document).ready(function () {
         $("header").css("display", "none");
         if (dataID === "foodDiv") {
             foodDiv.css("display", "block");
+            $("#drinkDivContainer").hide();
         } else if (dataID === "drinkDiv") {
             drinkDiv.css("display", "block");
+            $("#foodDivContainer").hide();
         } else if (dataID === "both") {
             foodDiv.css("display", "block");
             $("#spaceArea").css("display", "block")
