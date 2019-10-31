@@ -47,7 +47,7 @@ $(document).ready(function () {
                 var breweryType = breweryResults[i].brewery_type;
                 var brewerySite = breweryResults[i].website_url;
 
-                var resultRow =$("<div class='row'>")
+                var resultRow =$("<div class='row drinkCard'>")
                 var resultCard = $("<div class='card col-md-5'>")
                 var resultContent = $("<div class='card-body'>")
                 var resultName = $("<h2 class='card-title'>")
@@ -127,6 +127,7 @@ $(document).ready(function () {
             foodDiv.css("display", "block");
         } else if (dataID === "drinkDiv") {
             drinkDiv.css("display", "block");
+            foodDiv.css("display", "none");
         } else if (dataID === "both") {
             foodDiv.css("display", "block");
             $("#spaceArea").css("display", "block")
