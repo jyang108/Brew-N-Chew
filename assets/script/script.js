@@ -17,8 +17,6 @@ $(document).ready(function () {
         var state = $("#drinkState").val();
         var type = $("#drinkType").val();
         var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state) + "&by_type=" + type;
-
-        
         console.log(breweryURL);
         $.ajax({
             url: breweryURL,
@@ -85,7 +83,6 @@ $(document).ready(function () {
         }
         else {
             $("#foodResultBtn").css("display", "block");
-            var theSorting = "real_distance";
             var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + chooseSorting;
             // ajax for zomato
             $.ajax({
