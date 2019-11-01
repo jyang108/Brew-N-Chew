@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     var foodDiv = $("#foodDiv")
     var drinkDiv = $("#drinkDiv")
-
+    var whichSearch;
 
     var lat;
     var lon;
@@ -12,6 +12,7 @@ $(document).ready(function () {
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
+        $("#drinkResultBtn").css("display", "block");
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var type = $("#drinkType").val();
@@ -45,7 +46,7 @@ $(document).ready(function () {
                 resultType.text(breweryType);
                 resultLink.attr("href", brewerySite);
 
-                $("#drinkDivContainer").append(resultRow);
+                $("#drinkResultDiv").append(resultRow);
                 resultRow.append(resultCard);
                 resultCard.append(resultContent);
                 resultContent.append(resultName);
@@ -83,6 +84,7 @@ $(document).ready(function () {
             $("#message").text("Please Select A Type Of Sorting");
         }
         else {
+            $("#foodResultBtn").css("display", "block");
             var theSorting = "real_distance";
             var zomatoUrl = "https://developers.zomato.com/api/v2.1/search?q=" + encodeURI(keyWord) + "&lat=" + lat + "&lon=" + lon +"&sort=" + chooseSorting;
             // ajax for zomato
@@ -125,7 +127,7 @@ $(document).ready(function () {
                     resultSub.text(restaurantPhone);
                     // resultLink.attr("href", brewerySite);
     
-                    $("#foodDivContainer").append(resultRow);
+                    $("#foodResultDiv").append(resultRow);
                     resultRow.append(resultCard);
                     resultCard.append(resultContent);
                     resultContent.append(resultName);
@@ -133,15 +135,17 @@ $(document).ready(function () {
                     resultContent.append(resultInfo);
                     // resultContent.append(resultLink);
                 }
+                $("#foodDiv").hide();
             });
         }
-        $("#foodDiv").hide();
+        
     });
 
 
     $(".button").on("click", function () {
         var dataID = $(this).attr("data-id");
-        $("#searchFields").css("display", "block")
+        whichSearch = dataID;
+        $("#searchFields").css("display", "block");
         $("header").css("display", "none");
         if (dataID === "foodDiv") {
             foodDiv.css("display", "block");
@@ -151,22 +155,46 @@ $(document).ready(function () {
             $("#foodDivContainer").hide();
         } else if (dataID === "both") {
             foodDiv.css("display", "block");
-            $("#spaceArea").css("display", "block")
+            $("#spaceArea").css("display", "block");
             drinkDiv.css("display", "block");
 
         }
     });
 
     $("#home").on("click", function () {
-        var foodDiv = $("#foodDiv")
-        var drinkDiv = $("#drinkDiv")
+        var foodDiv = $("#foodDiv");
+        var drinkDiv = $("#drinkDiv");
         $("header").css("display", "block");
         $("header").css("visibility", "visible");
         foodDiv.css("display", "none");
         drinkDiv.css("display", "none");
-        $("#searchFields").css("display", "none")
-        $("#spaceArea").css("display", "none")
+        $("#searchFields").css("display", "none");
+        $("#spaceArea").css("display", "none");
 
     });
+
+    $("#foodResultBtn").on("click", function(){
+        $("#foodResultDiv").show();
+        $("#drinkResultDiv").hide();
+    });
+    $("#drinkResultBtn").on("click", function(){
+        $("#drinkResultDiv").show();
+        $("#foodResultDiv").hide();
+    });
+
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
+            $("#resultBtn").show();
+            $("#foodResultDiv").hide();
+            $("#drinkResultDiv").hide();
+        } else {
+            $("#resultBtn").hide();
+            $("#foodResultDiv").show();
+            $("#drinkResultDiv").show();
+        }
+      }
+      var x = window.matchMedia("(max-width: 767px)")
+      myFunction(x) // Call listener function at run time
+      x.addListener(myFunction) // Attach listener function on state changes
 });
 
