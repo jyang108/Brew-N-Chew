@@ -118,13 +118,9 @@ main {
         font-size: 4vw;
         text-align: center;
     }
-}
-
-
-
-.navBar{
-    margin-right: 18%;
-    
+    #headTitle{
+        font-size: 30vw;
+    }
 }
 
 .button{
@@ -134,7 +130,14 @@ main {
     border-radius: 5px;
 }
 
+
 .button:hover{
     color: white;
     background-color: black;
+}
+
+.links{
+    display:block;
+    width: 100%;
+    margin:auto;
 }
