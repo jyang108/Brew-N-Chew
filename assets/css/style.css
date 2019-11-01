@@ -106,6 +106,10 @@ main {
     float: left;
     
 }
+#choiceToSearch{
+    margin: auto;
+    width: 50%;
+}
 
 
 @media only screen and (max-width: 700px) {
