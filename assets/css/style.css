@@ -40,19 +40,35 @@ body{
 #searchNav {
     text-align: center;
     margin-left: 18%;
+
 }
 header {
     display: block;
 }
 
-#mainNav {
-    position: fixed;
-    margin: 25px 25px;
+#mainNavbar {
+    height: 40px;
+    width: 100%;
+}
+#mainNavbarList {
+    padding: 25px 25px;
+}
+.navItem {
+    margin-left: 20px;
+    float: left;
+}
+a.navLinks:hover {
+    color: #c2c2c2;
+    text-decoration: none;
 }
 a.navLinks {
-    color: #ffaa3c;
+    color: #7c7c7c;
     font-size: 20px;
 }
+#navbarBtn {
+    display: none;
+}
+
 
 main {
     height: 100%;
@@ -122,6 +138,13 @@ main {
         font-size: 4vw;
         text-align: center;
     }
+    a.navLinks {
+        font-size: 15px;
+    }
+    #mainNavbarList {
+        padding: 10px 10px;
+    }
+
 }
 
 
