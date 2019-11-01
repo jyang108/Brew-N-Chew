@@ -44,23 +44,14 @@ body{
 header {
     display: block;
 }
-.button{
-    bottom: 0;
-    font-size: 3vw;
-    font-family: 'Raleway', sans-serif;
-    padding: 0%;
-    margin: .5vw;
-    float: right;
-}
-a.button {
-    color: #ff5e00;
-}
-a.button:hover {
-    color: #ffaa3c;
-}
-a.nav-link{
-    font-family: "Timmana" , sans-serif;
 
+#mainNav {
+    position: fixed;
+    margin: 25px 25px;
+}
+a.navLinks {
+    color: #ffaa3c;
+    font-size: 20px;
 }
 
 main {
@@ -79,6 +70,8 @@ main {
 #searchFields {
     display: none;
 }
+
+
 
 
 #drinkResults {
@@ -138,6 +131,9 @@ main {
     display: inline-block;
     background-color:#ff711e;
     float: right;
+}
+.btn:hover{
+    background-color:#ffe7d9;
 }
 
 .navBar{
