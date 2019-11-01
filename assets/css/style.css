@@ -138,13 +138,19 @@ main {
         font-size: 4vw;
         text-align: center;
     }
+    #headTitle {
+        font-size: 30vw;
+    }
     a.navLinks {
         font-size: 15px;
     }
     #mainNavbarList {
         padding: 10px 10px;
     }
-
+    #mainNavbar {
+        background-image: url("../images/zwartevilt/zwartevilt.png");
+    }
+    
 }
 
 
