@@ -62,7 +62,7 @@ $(document).ready(function () {
         event.preventDefault();
         navigator.geolocation.getCurrentPosition(function (position) {
             lat = position.coords.latitude;
-            lon = position.coords.latitude;
+            lon = position.coords.longitude;
         });
     })
     // starts function for restaurant search
@@ -94,23 +94,12 @@ $(document).ready(function () {
                         'd88928eafacfec3391be0d039bd9daa4');
                 },
             }).then(function (response) {
+                console.log(lat + " "+ lon);
                 var theFoodresult = response;
                 for (i = 0; i < theFoodresult.restaurants.length; i++) {
                     var restaurantName = response.restaurants[i].restaurant.name;
                     var restaurantPhone = response.restaurants[i].restaurant.phone_numbers;
                     var restaurantLocation = response.restaurants[i].restaurant.location.address;
-                    // var newDiv = $("<div>");
-                    // var nameTag = $("<h3>");
-                    // var restNumber = $("<p>");
-                    // var restAddress = $("<p>");
-                    // nameTag.text(restaurantName);
-                    // restNumber.text(restaurantPhone);
-                    // restAddress.text(restaurantLocation);
-                    // newDiv.append(nameTag);
-                    // newDiv.append(restNumber);
-                    // newDiv.append(restAddress);
-                    // $("#foodResults").append(newDiv);
-
                     var resultRow = $("<div class='row mb-3'>")
                     var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
                     var resultContent = $("<div class='card-body'>")
