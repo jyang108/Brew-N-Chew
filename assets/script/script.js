@@ -12,49 +12,55 @@ $(document).ready(function () {
 
     // starts function for the brewery search
     $("#drinkSearch").on("click", function () {
-        $("#drinkResultBtn").css("display", "block");
         var city = $("#drinkCity").val();
         var state = $("#drinkState").val();
         var type = $("#drinkType").val();
-        var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state) + "&by_type=" + type;
-        console.log(breweryURL);
-        $.ajax({
-            url: breweryURL,
-            method: "GET"
-        }).then(function (response) {
-            var breweryResults = response;
-            console.log(breweryResults);
-            for (var i = 0; i < breweryResults.length; i++) {
-                console.log(breweryResults[i].name);
-                var breweryName = breweryResults[i].name;
-                var breweryType = breweryResults[i].brewery_type;
-                var brewerySite = breweryResults[i].website_url;
-                var breweryInfo = breweryResults[i].city + " " + breweryResults[i].street;
+        if(city === "" || state === "" || type === ""){
+            
+        }
+        else{
+            $("#drinkResultBtn").css("display", "block");
+            
+            var breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + encodeURI(city) + "&by_state=" + encodeURI(state) + "&by_type=" + type;
+            console.log(breweryURL);
+            $.ajax({
+                url: breweryURL,
+                method: "GET"
+            }).then(function (response) {
+                var breweryResults = response;
+                console.log(breweryResults);
+                for (var i = 0; i < breweryResults.length; i++) {
+                    console.log(breweryResults[i].name);
+                    var breweryName = breweryResults[i].name;
+                    var breweryType = breweryResults[i].brewery_type;
+                    var brewerySite = breweryResults[i].website_url;
+                    var breweryInfo = breweryResults[i].city + " " + breweryResults[i].street;
 
-                var resultRow = $("<div class='row mb-3'>")
-                var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
-                var resultContent = $("<div class='card-body'>")
-                var resultName = $("<h2 class='card-title'>")
-                var resultType = $("<h5 class='card-subtitle'>")
-                var resultInfo = $("<h4 class='card-text'>")
-                var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+                    var resultRow = $("<div class='row mb-3'>")
+                    var resultCard = $("<div class='card col-md-12' data-aos='zoom-in'>")
+                    var resultContent = $("<div class='card-body'>")
+                    var resultName = $("<h2 class='card-title'>")
+                    var resultType = $("<h5 class='card-subtitle'>")
+                    var resultInfo = $("<h4 class='card-text'>")
+                    var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
 
-                resultInfo.text(breweryInfo);
-                resultName.text(breweryName);
-                resultType.text(breweryType);
-                resultLink.attr("href", brewerySite);
+                    resultInfo.text(breweryInfo);
+                    resultName.text(breweryName);
+                    resultType.text(breweryType);
+                    resultLink.attr("href", brewerySite);
 
-                $("#drinkResultDiv").append(resultRow);
-                resultRow.append(resultCard);
-                resultCard.append(resultContent);
-                resultContent.append(resultName);
-                resultContent.append(resultType);
-                resultContent.append(resultInfo);
-                resultContent.append(resultLink);
-            };
-        });
+                    $("#drinkResultDiv").append(resultRow);
+                    resultRow.append(resultCard);
+                    resultCard.append(resultContent);
+                    resultContent.append(resultName);
+                    resultContent.append(resultType);
+                    resultContent.append(resultInfo);
+                    resultContent.append(resultLink);
+                };
+            });
 
-        $("#drinkDiv").hide();
+            $("#drinkDiv").hide();
+        }
 
     });
 
