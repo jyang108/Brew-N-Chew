@@ -16,7 +16,15 @@ $(document).ready(function () {
         var state = $("#drinkState").val();
         var type = $("#drinkType").val();
         if(city === "" || state === "" || type === ""){
-            
+            if(state === ""){
+                $("#drinkMessage").text("Enter A State");
+            }
+            else if(city === ""){
+                $("#drinkMessage").text("Enter A City");
+            }
+            else{
+                $("#drinkMessage").text("Choose A Type");
+            }
         }
         else{
             $("#drinkResultBtn").css("display", "block");
