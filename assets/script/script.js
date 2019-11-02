@@ -37,7 +37,7 @@ $(document).ready(function () {
                 var resultName = $("<h2 class='card-title'>")
                 var resultType = $("<h5 class='card-subtitle'>")
                 var resultInfo = $("<h4 class='card-text'>")
-                var resultLink = $("<button class='btn btn-outline-secondary'>Visit Website</button>")
+                var resultLink = $("<a><button class='btn btn-outline-secondary'>Visit Website</button></a>")
 
                 resultInfo.text(breweryInfo);
                 resultName.text(breweryName);
